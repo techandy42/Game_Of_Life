@@ -136,10 +136,14 @@ export class Game {
 
     for (let i = 0; i < 20; i++) {
       for (let j = 0; j < 20; j++) {
-        if (newBoard[i][j] == 2 || newBoard[i][j] == 3) {
-          this.board[i][j] = true
+        if (this.board[i][j]) {
+          if (newBoard[i][j] < 2 || newBoard[i][j] > 3) {
+            this.board[i][j] = false
+          }
         } else {
-          this.board[i][j] = false
+          if (newBoard[i][j] == 3) {
+            this.board[i][j] = true
+          }
         }
       }
     }
